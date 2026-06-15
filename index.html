@@ -499,43 +499,26 @@
   </div>
 </footer>
 
+
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('yr').textContent =
+    new Date().getFullYear();
 
-  const CHANNEL_ID = 'UCoMISfLWZu3rIVR_Q42Q-Sw';
-  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=1`;
+  document.getElementById('yt-embed').innerHTML = `
+    <iframe
+      src="https://www.youtube.com/embed/_AkLhcbonAA"
+      title="Drawing a Dog and Cat"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>`;
 
-  fetch(apiUrl)
-    .then(r => r.json())
-    .then(data => {
-      const item = data.items && data.items[0];
-      if (!item) return fallbackEmbed();
-      const match = item.link.match(/[?&]v=([^&]+)/);
-      const videoId = match ? match[1] : null;
-      if (!videoId) return fallbackEmbed();
+  document.getElementById('yt-title').textContent =
+    "Drawing a Dog and Cat";
 
-      document.getElementById('yt-embed').innerHTML = `<iframe
-        src="https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1"
-        title="${item.title}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>`;
-
-      document.getElementById('yt-title').textContent = item.title;
-      const pub = item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '';
-      document.getElementById('yt-meta').textContent = pub ? `Published ${pub}` : '';
-    })
-    .catch(() => fallbackEmbed());
-
-  function fallbackEmbed() {
-    document.getElementById('yt-embed').innerHTML = `
-      <a href="https://www.youtube.com/@stevepetersonart" target="_blank"
-         style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-                background:#111;color:#fff;font-family:sans-serif;font-size:14px;letter-spacing:.05em;text-transform:uppercase">
-        Watch on YouTube →
-      </a>`;
-  }
+  document.getElementById('yt-meta').textContent =
+    "Featured video from Steve Peterson Art";
 </script>
+
 
 </body>
 </html>
