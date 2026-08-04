@@ -11,7 +11,7 @@
       --ink: #1a1a1a;
       --soft: #555;
       --rule: #e0e0e0;
-      --bg: #fafafa;
+      --bg: #FAF6EF;
       --white: #ffffff;
       --orange: #D4621A;
       --orange-hover: #b85416;
@@ -26,7 +26,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* ── Layout ── */
     .container {
       max-width: 860px;
       margin: 0 auto;
@@ -50,22 +49,49 @@
     }
 
     /* ── Hero ── */
-    #hero {
-      padding: 80px 0 72px;
-    }
+    #hero { padding: 80px 0 72px; }
 
     .hero-inner {
       display: flex;
       flex-direction: column;
-      max-width: 560px;
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 40px;
     }
 
     .hero-cover {
       width: 100%;
-      max-width: 320px;
       display: block;
-      margin-top: 40px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-story {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.75;
+    }
+    .hero-story h2 {
+      font-size: 0.8rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .hero-story h3 {
+      font-size: 1.15rem;
+      font-weight: bold;
+      font-family: Georgia, 'Times New Roman', serif;
+      margin-bottom: 16px;
+    }
+    .hero-story p {
+      margin-bottom: 0.6em;
     }
 
     .hero-logo {
@@ -128,10 +154,7 @@
       width: 100%; height: 100%;
       border: none;
     }
-    .video-title {
-      margin-top: 16px;
-      font-size: 1.05rem;
-    }
+    .video-title { margin-top: 16px; font-size: 1.05rem; }
     .video-meta {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       font-size: 12px;
@@ -154,133 +177,41 @@
     .channel-link:hover { opacity: 0.75; }
 
     /* ── Substack ── */
-    .substack-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 28px 32px;
-      border: 1px solid var(--rule);
-      background: var(--white);
-      transition: box-shadow 0.2s;
-    }
-    .substack-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-    .substack-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
+    #substack {
       background: var(--orange);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      font-family: Georgia, serif;
-    }
-    .substack-text h3 {
-      font-size: 1.05rem;
-      font-weight: normal;
-      margin-bottom: 3px;
-    }
-    .substack-text p {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      color: var(--soft);
-    }
-    .substack-arrow {
-      margin-left: auto;
-      font-size: 20px;
-      color: var(--orange);
-    }
-
-    /* ── Events ── */
-    #events {
-      background: #CCBA9D;
       border-bottom: none;
-    }
-    #events .section-label {
-      color: #8B6A42;
-    }
-    .event-card {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0 40px;
-      align-items: start;
-    }
-    .event-date-block {
       text-align: center;
-      min-width: 72px;
     }
-    .event-month {
+    #substack .section-label {
+      color: rgba(255,255,255,0.7);
+    }
+    .substack-headline {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: normal;
+      color: #fff;
+      line-height: 1.3;
+      max-width: 36ch;
+      margin: 0 auto 32px;
+    }
+    .substack-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 32px;
+      background: #fff;
+      color: var(--orange);
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange);
-    }
-    .event-day {
-      font-size: 6rem;
-      line-height: 1;
-      font-weight: normal;
-      letter-spacing: -0.03em;
-      color: var(--orange);
-    }
-    .event-year {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 18px;
-      color: #7A5E3E;
-    }
-    .event-details h3 {
-      font-size: 1.35rem;
-      font-weight: normal;
-      margin-bottom: 8px;
-      color: #2D2820;
-    }
-    .event-details .event-time {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 17px;
-      font-weight: 600;
       letter-spacing: 0.06em;
-      color: var(--orange);
-      margin-bottom: 16px;
-    }
-    .event-details p {
-      font-size: 0.98rem;
-      color: #2D2820;
-      max-width: 52ch;
-    }
-    .event-details a.venue-link {
-      color: #2D2820;
-      font-weight: bold;
-      border-bottom: 1px solid #2D2820;
-      transition: opacity 0.2s;
-    }
-    .event-details a.venue-link:hover { opacity: 0.65; }
-    .event-address {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 13px;
-      color: var(--orange);
-      margin-top: 8px;
-    }
-
-    .event-highlights {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .pill {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 5px 14px;
-      border: 1px solid #2D2820;
-      color: #2D2820;
+      transition: background 0.2s, color 0.2s;
     }
+    .substack-card:hover {
+      background: var(--orange-hover);
+      color: #fff;
+    }
+    .substack-arrow { font-size: 18px; }
 
     /* ── Gallery ── */
     .gallery-grid {
@@ -294,12 +225,46 @@
       object-fit: cover;
       display: block;
       transition: opacity 0.2s;
+      cursor: zoom-in;
     }
     .gallery-grid img:hover { opacity: 0.88; }
 
-    @media (max-width: 560px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-grid img { height: 240px; }
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 300;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    #lightbox-close:hover { opacity: 1; }
+    .gallery-bio {
+      margin-top: 32px;
+      font-size: 1rem;
+      color: #444;
     }
 
     /* ── Social ── */
@@ -339,16 +304,15 @@
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      .hero-cover { max-width: 260px; }
-      .event-card {
+      .hero-bottom {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 32px;
       }
-      .event-date-block { text-align: left; display: flex; align-items: baseline; gap: 10px; }
-      .event-day { font-size: 2rem; }
+      .hero-cover { max-width: 260px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid img { height: 240px; }
     }
   </style>
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "01eecab1ae0a4323a2e4047ed006a31c"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
@@ -357,30 +321,45 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
-        <img
-          src="andmilky-logo.png"
-          alt="Andmilky Galaxy logo"
-          class="hero-logo"
-        />
+        <img src="andmilky-logo.webp" alt="Andmilky Galaxy logo" class="hero-logo" />
         <h1>Andmilky Galaxy</h1>
         <p class="byline">Volume One &nbsp;·&nbsp; Steve Peterson</p>
-        <p class="description">
-          A book of 25 flash fiction stories. Sci-fi and casual surrealism.
-        </p>
-       <a
-  href="https://steve-peterson-art.myshopify.com"
-  target="_blank"
-  class="btn"
-  onclick="cloudflareTrack('shopify_click')"
->
-  Get the Book
-</a>
+        <p class="description">A book of 25 flash fiction stories. Sci-fi and casual surrealism.</p>
       </div>
-      <img
-        src="Andmilky Galaxy Cover Idea SMALL 9.jpg"
-        alt="Andmilky Galaxy Volume One — Steve Peterson"
-        class="hero-cover"
-      />
+      <div class="hero-bottom">
+        <div>
+          <img
+            src="Andmilky Galaxy Cover Idea SMALL 9.jpg"
+            alt="Andmilky Galaxy Volume One — Steve Peterson"
+            class="hero-cover"
+          />
+          <div style="margin-top: 20px;">
+            <a href="https://steve-peterson-art.myshopify.com/products/andmilky-galaxy-volume-one" target="_blank" class="btn">Get the Book</a>
+            <p style="margin-top: 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--soft); letter-spacing: 0.06em; text-transform: uppercase;">Paperback &nbsp;·&nbsp; $14</p>
+          </div>
+        </div>
+        <div class="hero-story">
+          <h2>Sample Story</h2>
+          <h3>Muut Spex | Episode 2</h3>
+          <p>An oatmeal-colored spaceship enters orbit around the 8th planet.</p>
+          <p>"Ahh, the 8th planet!" says Spex.</p>
+          <p>Muut hovers near Spex.</p>
+          <p>"This one seems promising," says Spex.</p>
+          <p>"The atmosphere is breathable," says Muut.</p>
+          <p>"What's in the water?" asks Spex.</p>
+          <p>"Nothing we cannot filter out," says Muut.</p>
+          <p>Spex and Muut board the cyan-colored satellite spaceship and fly down to a dangerous-looking section of jungle on the planet. Their cyan ship slowly descends through the gargantuan pitch purple trees.</p>
+          <p>"You are on your own for a while now," Muut says. Then he floats into the receptacle and powers down.</p>
+          <p>Spex knows what to do now: figure out how to make hot dogs. First you need to find the meat.</p>
+          <p>"There's got to be some small critters around here somewhere!" Spex says to himself as he wanders deeper into the jungle. As the mud collecting on his boots is starting to weigh on him, Spex stops to sit on a nearby pitch purple log.</p>
+          <p>"Wheeeew!" goes Spex. "I'm hungry." In front of him a small creature stands up suddenly.</p>
+          <p>"Oh! Lunch!" says Spex as he pulls out his laser gun.</p>
+          <p>Zzzzt! A small hole burns through the creature.</p>
+          <p>"Got 'em!" says Spex.</p>
+          <p>High above Spex, orbiting the planet, the oatmeal-colored spaceship waits in silence. Even higher above him the Oort robot descends in search of Muut.</p>
+          <p style="margin-top: 20px; font-style: italic; color: var(--orange);">More Muut Spex episodes in Andmilky Galaxy Volume One!</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -392,60 +371,19 @@
     <div class="video-wrapper" id="yt-embed"></div>
     <p class="video-title" id="yt-title"></p>
     <p class="video-meta" id="yt-meta"></p>
-  <a
-  href="https://www.youtube.com/@stevepetersonart"
-  target="_blank"
-  class="channel-link"
-  onclick="cloudflareTrack('youtube_click')"
->
-  View all videos →
-</a>
+    <a href="https://www.youtube.com/@stevepetersonart" target="_blank" class="channel-link">View all videos →</a>
   </div>
 </section>
 
 <!-- ══════════════════════════════ SUBSTACK ══════════════════════════════ -->
 <section id="substack">
   <div class="container">
-    <p class="section-label">Writing</p>
-   <a href="https://andmilkygalaxy.substack.com"
-   target="_blank"
-   class="substack-card"
-   onclick="cloudflareTrack('substack_click')">
-      <div class="substack-icon">S</div>
-      <div class="substack-text">
-        <h3>Andmilky Galaxy on Substack</h3>
-        <p>Essays, stories, and dispatches — read the latest</p>
-      </div>
+    <p class="section-label">Stay in the Loop</p>
+    <p class="substack-headline">Get more updates from Andmilky Galaxy and future event announcements.</p>
+    <a href="https://andmilkygalaxy.substack.com" target="_blank" class="substack-card">
+      Subscribe on Substack
       <span class="substack-arrow">→</span>
     </a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ EVENTS ═══════════════════════════════ -->
-<section id="events">
-  <div class="container">
-    <p class="section-label">Upcoming Events</p>
-    <div class="event-card">
-      <div class="event-date-block">
-        <div class="event-month">Aug</div>
-        <div class="event-day">1</div>
-        <div class="event-year">2026</div>
-      </div>
-      <div class="event-details">
-        <h3>Andmilky Galaxy Volume One — Release Party</h3>
-        <p class="event-time">Saturday &nbsp;·&nbsp; 6:00 – 9:00 pm</p>
-        <p>
-          Experience the Andmilky Galaxy at <a href="https://www.owlseyeart.com" target="_blank" class="venue-link" onclick="cloudflareTrack('event_click')">Owls Eye Art Collective</a> in St. Paul.
-        </p>
-        <p class="event-address">289 5th Street East #105, Saint Paul, MN 55101</p>
-        <div class="event-highlights">
-          <span class="pill">Stories</span>
-          <span class="pill">Relief Printing</span>
-          <span class="pill">Original Art</span>
-          <span class="pill">Refreshments</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -454,12 +392,12 @@
   <div class="container">
     <p class="section-label">Artwork</p>
     <div class="gallery-grid">
-      <img src="cartoon abstract expression.png" alt="Abstract painting by Steve Peterson" />
+      <img src="cartoon abstract expression.webp" alt="Abstract painting by Steve Peterson" />
       <img src="Kitty.jpg" alt="Cat painting by Steve Peterson" />
-      <img src="Lake and Vicoria Glacier.png" alt="Mountain lake painting by Steve Peterson" />
-      <img src="Purple Owl.png" alt="Owl painting by Steve Peterson" />
+      <img src="Lake and Vicoria Glacier.webp" alt="Mountain lake painting by Steve Peterson" />
+      <img src="Purple Owl.webp" alt="Owl painting by Steve Peterson" />
     </div>
-    <p style="margin-top: 32px; font-size: 1rem; color: #444;">Steve Peterson is a visual artist and writer in St. Paul, Minnesota.</p>
+    <p class="gallery-bio">Steve Peterson is a visual artist and writer in St. Paul, Minnesota.</p>
   </div>
 </section>
 
@@ -469,10 +407,7 @@
     <p class="section-label">Find Me Online</p>
     <div class="social-grid">
 
-     <a href="https://www.instagram.com/steven.d.peterson09/"
-   target="_blank"
-   class="social-link"
-   onclick="cloudflareTrack('instagram_click')">
+      <a href="https://www.instagram.com/steven.d.peterson09/" target="_blank" class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="4.5"/>
@@ -481,7 +416,7 @@
         Instagram
       </a>
 
-      <a href="https://www.youtube.com/@stevepetersonart" target="_blank" class="social-link" onclick="cloudflareTrack('youtube_click')">
+      <a href="https://www.youtube.com/@stevepetersonart" target="_blank" class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
           <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
@@ -489,14 +424,14 @@
         YouTube
       </a>
 
-      <a href="https://andmilkygalaxy.substack.com" target="_blank" class="social-link" onclick="cloudflareTrack('substack_click')">
+      <a href="https://andmilkygalaxy.substack.com" target="_blank" class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
           <path d="M22 5.892H2v2.338h20V5.892zm0 4.966H2v12.252l10-4.58 10 4.58V10.858zm0-9.866H2v2.338h20V.992z"/>
         </svg>
         Substack
       </a>
 
-      <a href="https://steve-peterson-art.myshopify.com" target="_blank" class="social-link" onclick="cloudflareTrack('shopify_click')">
+      <a href="https://steve-peterson-art.myshopify.com/products/andmilky-galaxy-volume-one" target="_blank" class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -509,42 +444,78 @@
   </div>
 </section>
 
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
 <footer>
   <div class="container">
-    <img src="andmilky-logo.png" alt="Andmilky Galaxy logo" style="width: 48px; height: 48px; object-fit: contain; display: block; margin: 0 auto 16px;" />
+    <img src="andmilky-logo.webp" alt="Andmilky Galaxy logo" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 16px;" />
     &copy; <span id="yr"></span> Steve Peterson &nbsp;·&nbsp; Andmilky Galaxy
   </div>
 </footer>
 
-
 <script>
-  document.getElementById('yr').textContent =
-    new Date().getFullYear();
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-  document.getElementById('yt-embed').innerHTML = `
-    <iframe
-      src="https://www.youtube.com/embed/_AkLhcbonAA"
-      title="Drawing a Dog and Cat"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>`;
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
 
-  document.getElementById('yt-title').textContent =
-    "Drawing a Dog and Cat";
+  document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
 
-  document.getElementById('yt-meta').textContent =
-    "Featured video from Steve Peterson Art";
-</script>
-
-<script>
-function cloudflareTrack(eventName) {
-  if (typeof window !== 'undefined' &&
-      typeof window.cloudflare !== 'undefined' &&
-      typeof window.cloudflare.track === 'function') {
-    window.cloudflare.track(eventName);
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
   }
-}
-  
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  const CHANNEL_ID = 'UCoMISfLWZu3rIVR_Q42Q-Sw';
+  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=1`;
+
+  fetch(apiUrl)
+    .then(r => r.json())
+    .then(data => {
+      const item = data.items && data.items[0];
+      if (!item) return fallbackEmbed();
+      const match = item.link.match(/[?&]v=([^&]+)/);
+      const videoId = match ? match[1] : null;
+      if (!videoId) return fallbackEmbed();
+
+      document.getElementById('yt-embed').innerHTML = `<iframe
+        src="https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1"
+        title="${item.title}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`;
+
+      document.getElementById('yt-title').textContent = item.title;
+      const pub = item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '';
+      document.getElementById('yt-meta').textContent = pub ? `Published ${pub}` : '';
+    })
+    .catch(() => fallbackEmbed());
+
+  function fallbackEmbed() {
+    document.getElementById('yt-embed').innerHTML = `
+      <a href="https://www.youtube.com/@stevepetersonart" target="_blank"
+         style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+                background:#111;color:#fff;font-family:sans-serif;font-size:14px;letter-spacing:.05em;text-transform:uppercase">
+        Watch on YouTube →
+      </a>`;
+  }
 </script>
+
 </body>
 </html>
