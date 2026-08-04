@@ -484,7 +484,7 @@
 
   const CHANNEL_ID = 'UCoMISfLWZu3rIVR_Q42Q-Sw';
   const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=1`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
   fetch(apiUrl)
     .then(r => r.json())
